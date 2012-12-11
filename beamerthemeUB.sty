@@ -1,0 +1,130 @@
+% UB/SUNY Buffalo presentation theme for beamer
+% Jeff Delmerico <jeffdelmerico@gmail.com> 2012
+% https://github.com/jeffdelmerico/UB_Beamer_Theme.git
+%
+% Adapted from ZBH theme by:
+% Sascha Steinbiss <steinbiss@zbh.uni-hamburg.de>
+% https://github.com/satta/zbh-beamer-theme.git
+
+\ProvidesPackage{beamerthemeUB}[2012/12/10 UB Beamer Theme]
+
+\def\backgroundfile{UB_GraySeal}
+\def\bannerfile{UB_Banner}
+
+\definecolor{UBBlue}{RGB}{4,26,155}
+\definecolor{UBGray}{RGB}{102,102,102}
+\definecolor{UBSkyBlue}{RGB}{128,157,196}
+\definecolor{UBGreen}{RGB}{158,186,41}
+\definecolor{UBOrange}{RGB}{229,147,25}
+
+\newlength{\@headerdist}
+\setlength{\@headerdist}{5mm}
+
+\newcommand{\titletext}{
+	Vision and Perceptual Machines Lab\\
+	106 Davis Hall\\
+	UB North Campus\\
+}
+
+\mode<presentation>
+
+\setbeamerfont{author}{size=\large}
+\setbeamerfont{date}{size=\large}
+\setbeamerfont{example text}{series=\bfseries}
+\setbeamerfont{section}{series=\bfseries}
+\setbeamercolor{structure}{fg=UBOrange}
+\setbeamercolor{title}{fg=black}
+\setbeamerfont{title}{series=\bfseries}
+
+% disable navigation symbols (who uses these anyway?)
+\setbeamertemplate{navigation symbols}{}
+
+% frame
+\setbeamercolor{frametitle}{fg=UBBlue}
+\setbeamerfont{frametitle}{series=\mdseries,size=\Large}
+\setbeamerfont{framesubtitle}{series=\mdseries,size=\large}
+\setbeamertemplate{frametitle}
+{
+  \ifbeamer@plainframe
+  \else
+  	\vspace{0.25cm}
+    \textbf{\insertframetitle}
+    \vspace{.25cm}
+  \fi
+}
+
+% headline
+\setbeamercolor{headline}{fg=white}
+\setbeamertemplate{headline}{
+	\ifbeamer@plainframe
+	\else
+    	\vspace{8mm}
+    	\leavevmode\tiny%
+    	\hspace*{9.15cm}
+    	\normalsize
+	\fi
+}
+
+% title page with UB image
+\setbeamertemplate{title page}{
+	\makebox[\textwidth]{\raisebox{0.53cm}[0pt][0pt]{\includegraphics[width=\paperwidth]{\bannerfile}}}
+  %\vspace{\@headerdist}
+  \textbf{\LARGE{\inserttitle}}
+
+  \textbf{\large{\insertsubtitle}}
+  \vfill
+  \begin{columns}
+  \begin{column}{.45\textwidth}
+	\textbf{\insertauthor}\\[3mm]
+	\scriptsize
+    \titletext
+	\vspace*{0.25cm}
+	\insertshortinstitute
+	\vspace*{0.25cm}
+	\insertshortdate
+  \end{column}
+  \begin{column}{.45\textwidth}
+      \hfill\pgfimage[width=\linewidth]{davis2}
+  \end{column}
+  \end{columns}
+  \normalsize
+  \setbeamertemplate{footline}{}
+}
+
+% footer with name, date and page numbers
+\setbeamercolor{footline}{fg=UBBlue}
+\setbeamertemplate{footline}{
+  \ifbeamer@plainframe
+  \else
+    \leavevmode\tiny%
+    \hspace*{2.0cm}%
+    \makebox[3cm][l]{\insertauthor}%
+    \makebox[3cm][l]{\insertdate}%
+	  \hfill
+	  \ifx\insertsection\empty
+	  \else
+    	\insertsection
+	  \fi
+	  \ifx\insertsubsection\empty
+	  \else
+	  	:\insertsubsection
+	  \fi
+	  \ifx\insertsubsubsection\empty
+	  \else
+	    :\insertsubsubsection
+	  \fi
+      \hfill\insertframenumber/\inserttotalframenumber\hspace{5mm}%
+    \vspace{3mm}%
+  \fi
+}
+
+% use UB slide layout template as background image
+\setbeamertemplate{background} {
+  \ifbeamer@plainframe
+  \else
+    \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
+  \fi
+}
+
+\mode
+<all>
