@@ -1,0 +1,5 @@
+- Write README
+- Add install script
+- Add makefile for example
+- Make pdf version of title page background
+- Work on fixing headline of title page
