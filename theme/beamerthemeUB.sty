@@ -11,8 +11,8 @@
 \ProvidesPackage{beamerthemeUB}[2012/12/10 UB Beamer Theme]
 
 \def\backgroundfile{UB_GraySeal}
-\def\bannerfile{UB_Banner}
-\newcommand\titlepic{davis2}
+\def\plainbgfile{UB_NoSeal}
+\newcommand\titlepic{davis}
 
 \definecolor{UBBlue}{RGB}{4,26,155}
 \definecolor{UBGray}{RGB}{102,102,102}
@@ -53,6 +53,7 @@
 \setbeamercolor{frametitle}{fg=UBBlue}
 \setbeamerfont{frametitle}{series=\mdseries,size=\Large}
 \setbeamerfont{framesubtitle}{series=\mdseries,size=\large}
+
 \setbeamertemplate{frametitle}
 {
   \ifbeamer@plainframe
@@ -71,13 +72,12 @@
     	\vspace{8mm}
     	\leavevmode\tiny%
     	\hspace*{9.15cm}
-    	\normalsize
+	   	\normalsize
 	\fi
 }
 
 % title page with UB image
 \setbeamertemplate{title page}{
-	\makebox[\textwidth]{\raisebox{0.675cm}[0pt][0pt]{\includegraphics[width=\paperwidth]{\bannerfile}}}
   \textbf{\LARGE{\inserttitle}}
 
   \textbf{\large{\insertsubtitle}}
@@ -93,7 +93,7 @@
 	\insertshortdate
   \end{column}
   \begin{column}{.45\textwidth}
-	\hfill\includegraphics[height=3.25cm,width=\linewidth,keepaspectratio]{\titlepic}
+	\hfill\includegraphics[height=5cm,width=\linewidth,keepaspectratio]{\titlepic}
   \end{column}
   \end{columns}
   \normalsize
@@ -129,10 +129,15 @@
 
 % use UB slide layout template as background image
 \setbeamertemplate{background} {
-  \ifbeamer@plainframe
-  \else
-    \includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}
-  \fi
+	\ifnum\thepage=1\relax%
+		\includegraphics[width=\paperwidth,height=\paperheight]{\plainbgfile}%
+	\else%
+  		\ifbeamer@plainframe%
+  	%\makebox[\textwidth]{\raisebox{0.675cm}[0pt][0pt]{\includegraphics[width=\paperwidth,height=\paperheight]{\plainbgfile}}}
+  		\else%
+    		\includegraphics[width=\paperwidth,height=\paperheight]{\backgroundfile}%
+  		\fi%
+	\fi%
 }
 
 \mode
