@@ -1,6 +1,7 @@
 UB_Beamer_Theme
 ===============
 Author: Jeff Delmerico <<jad12@buffalo.edu>>
+
 Theme and examples adapted from: Sascha Steinbiss <<steinbiss@zbh.uni-hamburg.de>> and LIM Lian Tze <<liantze@gmail.com>>, respectively.  
 
 Theme for LaTeX Beamer presentations based on SUNY Buffalo official PPT template. It contains the theme files in the "theme" directory, and an example tex document and makefile in the "example" directory.
